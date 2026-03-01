@@ -4,11 +4,41 @@ using namespace std;
 
 const int MAX_SIZE= 100;
 int heap [MAX_SIZE +1]; // heap array,index starts at 1
-int size = 0 // number of elemets in heap
+int size = 0; // number of elemets in heap
+
+
+void printTree(int array[], int lastIndex, int curIndex, int depth)
+{
+    if (curIndex > lastIndex)
+        return;
+
+    // Right child first
+    if ((curIndex * 2) + 1 <= lastIndex)
+        printTree(array, lastIndex, (curIndex * 2) + 1, depth + 1);
+
+    // Print tabs for depth
+    for (int i = 0; i < depth; i++)
+        cout << "\t";
+
+    cout << array[curIndex] << endl;
+
+    // Left child
+    if ((curIndex * 2) <= lastIndex)
+        printTree(array, lastIndex, (curIndex * 2), depth + 1);
+}
 
 int main()
   {
-    cout << "Heap program " << endl;
+    size = 7;
+    heap[1] = 100;
+    heap[2] = 99;
+    heap[3] = 96;
+    heap[4] = 98;
+    heap[5] = 97;
+    heap[6] = 95;
+    heap[7] = 94;
+
+    printTree(heap, size, 1, 0);
     return 0;
 
   }
@@ -19,16 +49,5 @@ int main()
 
 
 
-/*
-void printTree(int array[] int last index, int car index, int depth)
-{if( curIndex*2)+1 <lastIndex){// Assumes index starting at 1,might be off by one w/your last index
-  printTree (array,lastIndex, (curIndex*2)+1,depth +1);//right recustion
-}
 
-for (int i=0 ; i <depth;i++){
-  cout << "\t"; //print tabs
- }
-cout << array [curIndex] << endl;
 
-//recursion for left side
-*/
