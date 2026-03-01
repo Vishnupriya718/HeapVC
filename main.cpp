@@ -49,6 +49,41 @@ void printTree(int array[], int lastIndex, int curIndex, int depth)
         printTree(array, lastIndex, (curIndex * 2), depth + 1);
 }
 
+
+void removeRoot()
+{
+    if (size == 0)
+    {
+        cout << "Heap is empty!" << endl;
+        return;
+    }
+
+    cout << "Removed: " << heap[1] << endl;
+
+    heap[1] = heap[size];
+    size--;
+
+    int index = 1;
+
+    while (true)
+    {
+        int left = index * 2;
+        int right = index * 2 + 1;
+        int largest = index;
+
+        if (left <= size && heap[left] > heap[largest])
+            largest = left;
+
+        if (right <= size && heap[right] > heap[largest])
+            largest = right;
+
+        if (largest == index)
+            break;
+
+        swap(heap[index], heap[largest]);
+        index = largest;
+    }
+}
 int main()
   {
     insert(100);
