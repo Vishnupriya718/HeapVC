@@ -7,6 +7,28 @@ int heap [MAX_SIZE +1]; // heap array,index starts at 1
 int size = 0; // number of elemets in heap
 
 
+
+void insert(int value)
+{
+    if (size >= MAX_SIZE)
+    {
+        cout << "Heap full!" << endl;
+        return;
+    }
+
+    size++;
+    heap[size] = value;
+
+    int index = size;
+
+    // Heapify up
+    while (index > 1 && heap[index] > heap[index / 2])
+    {
+        swap(heap[index], heap[index / 2]);
+        index = index / 2;
+    }
+}
+
 void printTree(int array[], int lastIndex, int curIndex, int depth)
 {
     if (curIndex > lastIndex)
@@ -29,15 +51,13 @@ void printTree(int array[], int lastIndex, int curIndex, int depth)
 
 int main()
   {
-    size = 7;
-    heap[1] = 100;
-    heap[2] = 99;
-    heap[3] = 96;
-    heap[4] = 98;
-    heap[5] = 97;
-    heap[6] = 95;
-    heap[7] = 94;
-
+    insert(100);
+    insert(99);
+    insert(96);
+    insert(98);
+    insert(97);
+    insert(95);
+    insert(94);
     printTree(heap, size, 1, 0);
     return 0;
 
