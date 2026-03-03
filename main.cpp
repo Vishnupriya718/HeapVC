@@ -7,7 +7,7 @@ int heap [MAX_SIZE +1]; // heap array,index starts at 1
 int size = 0; // number of elemets in heap
 
 
-
+// Inserts a value into the heap and restores max-heap property
 void insert(int value)
 {
     if (size >= MAX_SIZE)
@@ -28,7 +28,7 @@ void insert(int value)
         index = index / 2;
     }
 }
-
+// Prints the heap sideways to visualize
 void printTree(int array[], int lastIndex, int curIndex, int depth)
 {
     if (curIndex > lastIndex)
@@ -49,7 +49,7 @@ void printTree(int array[], int lastIndex, int curIndex, int depth)
         printTree(array, lastIndex, (curIndex * 2), depth + 1);
 }
 
-
+// Removes the root (largest element) and restores heap property
 void removeRoot()
 {
     if (size == 0)
