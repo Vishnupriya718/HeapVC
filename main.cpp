@@ -93,7 +93,13 @@ int main()
     insert(97);
     insert(95);
     insert(94);
+    cout << "Original Heap:\n";
     printTree(heap, size, 1, 0);
+
+    cout << "\nAfter Removing Root:\n";
+    removeRoot();
+    printTree(heap, size, 1, 0);
+ 
     return 0;
 
   }
