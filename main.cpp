@@ -84,6 +84,36 @@ void removeRoot()
         index = largest;
     }
 }
+void removeAll()
+{
+    while (size > 0)
+    {
+        removeRoot();
+    }
+}
+
+// Allows user to enter numbers manually
+void manualInput()
+{
+    int number;
+    cout << "Enter numbers between 1 and 1000 (enter -1 to stop):\n";
+
+    while (true)
+    {
+        cin >> number;
+
+        if (number == -1)
+            break;
+
+        if (number < 1 || number > 1000)
+        {
+            cout << "Invalid number. Try again.\n";
+            continue;
+        }
+
+        insert(number);
+    }
+}
 int main()
   {
     insert(100);
