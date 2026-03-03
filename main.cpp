@@ -141,29 +141,39 @@ void fileInput()
     file.close();
 }
 
-
 int main()
-  {
-    insert(100);
-    insert(99);
-    insert(96);
-    insert(98);
-    insert(97);
-    insert(95);
-    insert(94);
-    cout << "Original Heap:\n";
-    printTree(heap, size, 1, 0);
+{
+    int choice;
 
-    cout << "\nAfter Removing Root:\n";
-    removeRoot();
-    printTree(heap, size, 1, 0);
- 
+    while (true)
+    {
+        cout << "\n1. Enter numbers manually\n";
+        cout << "2. Enter numbers from file\n";
+        cout << "3. Print heap\n";
+        cout << "4. Remove largest\n";
+        cout << "5. Remove all\n";
+        cout << "6. Quit\n";
+        cout << "Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+            manualInput();
+        else if (choice == 2)
+            fileInput();
+        else if (choice == 3)
+            printTree(heap, size, 1, 0);
+        else if (choice == 4)
+            removeRoot();
+        else if (choice == 5)
+            removeAll();
+        else if (choice == 6)
+            break;
+        else
+            cout << "Invalid choice.\n";
+    }
+
     return 0;
-
-  }
-
-
-
+}
 
 
 
