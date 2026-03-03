@@ -113,7 +113,35 @@ void manualInput()
 
         insert(number);
     }
+
 }
+
+void fileInput()
+{
+    string filename;
+    cout << "Enter filename: ";
+    cin >> filename;
+
+    ifstream file(filename);
+
+    if (!file)
+    {
+        cout << "Error opening file.\n";
+        return;
+    }
+
+    int number;
+
+    while (file >> number)
+    {
+        if (number >= 1 && number <= 1000)
+            insert(number);
+    }
+
+    file.close();
+}
+
+
 int main()
   {
     insert(100);
